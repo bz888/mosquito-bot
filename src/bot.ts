@@ -34,13 +34,7 @@ let voiceConnection: VoiceConnection | null = null;
 const player = createAudioPlayer();
 
 const targetList: string[] = [
-    '287303292860760064', // louis
-    '394298648487395328', // kisoon
-    '163604146849579008', // gerard
-    '209931476735623168', // andrew
-    '193734371830792194', // tyrell
-    '229037006754283522', // rhys
-    '390459901245128707' // tristan
+    '' // Can get USER ID from friend's profile
 ];
 
 
@@ -52,7 +46,8 @@ interface Command {
     execute: (message: Message) => void;
 }
 
-const TEST_CHANNEL = '757389067762794586'
+const TEST_CHANNEL = '010101010' // add your channel ID here.
+
 const Commands: Record<string, Command> = {
     'stop': {
         help: 'Turn off.',
@@ -208,7 +203,7 @@ const subscribeToSpeakingEvents = (connection: VoiceConnection) => {
 const play = () => {
     console.log("Attempting to play audio");
     try {
-        const audioFilePath = './donnie.mp3';
+        const audioFilePath = './files/speech.mp3';
         if (!fs.existsSync(audioFilePath)) {
             console.error('Audio file does not exist:', audioFilePath);
         }
